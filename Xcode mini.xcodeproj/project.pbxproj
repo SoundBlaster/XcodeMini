@@ -7,303 +7,289 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B4E78C06B1EF285A0AB031 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */; };
-		0EB68F764A04F4242932FFF5 /* XcodeMCPServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B38E01624709212E86038F4 /* XcodeMCPServicing.swift */; };
-		1AC09304629F5DEF9F0C75F0 /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6551876187402FC9FAE244 /* XcodeMCPClient.swift */; };
-		1DD5D2A1E1E1E6558EE72DDA /* XcodeProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08A6CBD9D92EFF246596AFE /* XcodeProject.swift */; };
-		29892C9331552676E5C37B13 /* RunProjectPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A719BC1DA1DED430456617C /* RunProjectPage.swift */; };
-		407151CEAE112FB543D55C39 /* NestedA11yIDs in Frameworks */ = {isa = PBXBuildFile; productRef = F851495D305FEE48287F7820 /* NestedA11yIDs */; };
-		84954D4B6DF1645106932A76 /* RunProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22F62809B0A593AB4F32853 /* RunProjectModel.swift */; };
-		F7D55E420D3CBBECF175F30C /* XcodeMiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1D2EE43013EB11B21B5608 /* XcodeMiniApp.swift */; };
-		FB90F15040282EC04FF50A1E /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B235CC7FF82E2EDCA9BD1AF /* ProjectContainer.swift */; };
+		08695D2DE9EA363D421104B5 /* XcodeMCPServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */; };
+		44BA17180EE54A7EC23E2ED9 /* NestedA11yIDs in Frameworks */ = {isa = PBXBuildFile; productRef = F1CF5E0EB8F684FF72D95BB2 /* NestedA11yIDs */; };
+		458AD2FC5B4EC909F69985C4 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2DE140C724FAE125E8E63C22 /* AppIcon.icon */; };
+		4F9EAF28A54B8974A51FD866 /* XcodeProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */; };
+		68CAF5A0460371B86D23FD9C /* XcodeMiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F35FB8354620ED83910184 /* XcodeMiniApp.swift */; };
+		AECB03C0639EF6C117EF6EDB /* RunProjectPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC9163B5DCC360AA0795E40 /* RunProjectPage.swift */; };
+		D79FBCF0F3D799C8A031D751 /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83573A24A5969775A0926FC /* ProjectContainer.swift */; };
+		E5FCE66A54A15E45C2012B4F /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */; };
+		F6DC842DEA8A581331CA7BAB /* RunProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A719BC1DA1DED430456617C /* RunProjectPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectPage.swift; sourceTree = "<group>"; };
-		6B235CC7FF82E2EDCA9BD1AF /* ProjectContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContainer.swift; sourceTree = "<group>"; };
-		6C6551876187402FC9FAE244 /* XcodeMCPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPClient.swift; sourceTree = "<group>"; };
-		7B38E01624709212E86038F4 /* XcodeMCPServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPServicing.swift; sourceTree = "<group>"; };
-		B22F62809B0A593AB4F32853 /* RunProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectModel.swift; sourceTree = "<group>"; };
-		CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		E08A6CBD9D92EFF246596AFE /* XcodeProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProject.swift; sourceTree = "<group>"; };
-		EC1D2EE43013EB11B21B5608 /* XcodeMiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMiniApp.swift; sourceTree = "<group>"; };
-		ED27D5C7C382005F7718BF1A /* XcodeMini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeMini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectModel.swift; sourceTree = "<group>"; };
+		1FC9163B5DCC360AA0795E40 /* RunProjectPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectPage.swift; sourceTree = "<group>"; };
+		2DE140C724FAE125E8E63C22 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPServicing.swift; sourceTree = "<group>"; };
+		70F35FB8354620ED83910184 /* XcodeMiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMiniApp.swift; sourceTree = "<group>"; };
+		90C45F3D62639775308381BF /* Xcode mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xcode mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPClient.swift; sourceTree = "<group>"; };
+		E83573A24A5969775A0926FC /* ProjectContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContainer.swift; sourceTree = "<group>"; };
+		FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C197DBAE11568CCB8D44FD23 /* Frameworks */ = {
+		76FC1EC24A574D930D2EAF74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				407151CEAE112FB543D55C39 /* NestedA11yIDs in Frameworks */,
+				44BA17180EE54A7EC23E2ED9 /* NestedA11yIDs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0320ADA720F4462778FB56B2 /* xcode-project */ = {
+		12289994C46188C0577FCED0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2E3AD9E7C082FED2BAA61036 /* model */,
-			);
-			path = "xcode-project";
-			sourceTree = "<group>";
-		};
-		117208350A3A356C7A3FC215 /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				1A719BC1DA1DED430456617C /* RunProjectPage.swift */,
-			);
-			path = ui;
-			sourceTree = "<group>";
-		};
-		2E3AD9E7C082FED2BAA61036 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				6B235CC7FF82E2EDCA9BD1AF /* ProjectContainer.swift */,
-				E08A6CBD9D92EFF246596AFE /* XcodeProject.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		35C6847AEF84772EEB7CB89E /* api */ = {
-			isa = PBXGroup;
-			children = (
-				CB2B61A3FE239D116C7FC557 /* xcode-mcp */,
-			);
-			path = api;
-			sourceTree = "<group>";
-		};
-		472928268EDB6F3E55ED0A4A /* model */ = {
-			isa = PBXGroup;
-			children = (
-				B22F62809B0A593AB4F32853 /* RunProjectModel.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		4D84E13F64344E5C495E8A96 /* shared */ = {
-			isa = PBXGroup;
-			children = (
-				35C6847AEF84772EEB7CB89E /* api */,
-			);
-			path = shared;
-			sourceTree = "<group>";
-		};
-		569AFC807528C1D46396BCE5 /* run-project */ = {
-			isa = PBXGroup;
-			children = (
-				472928268EDB6F3E55ED0A4A /* model */,
-			);
-			path = "run-project";
-			sourceTree = "<group>";
-		};
-		6205FD6A9CB98DCE31D26875 /* entities */ = {
-			isa = PBXGroup;
-			children = (
-				0320ADA720F4462778FB56B2 /* xcode-project */,
-			);
-			path = entities;
-			sourceTree = "<group>";
-		};
-		72D18EFBABDCED8612DE7A6A /* run-project */ = {
-			isa = PBXGroup;
-			children = (
-				117208350A3A356C7A3FC215 /* ui */,
-			);
-			path = "run-project";
-			sourceTree = "<group>";
-		};
-		873E7EADD85AFB8C7B03F23D /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				A860691347B4FCD02DF1D6DA /* App */,
+				BA481779EC286CFDA2B085FD /* App */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		8EEEB234A744BD4D444C5D52 /* pages */ = {
+		16E7360391670E48C9744489 /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				72D18EFBABDCED8612DE7A6A /* run-project */,
+				C6BFFAE7290127F0AF4849AC /* api */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		1DB3DD72D483CB21522B4B16 /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				E2098CFFBCF5CC2E973B446F /* run-project */,
 			);
 			path = pages;
 			sourceTree = "<group>";
 		};
-		9065CCC3D6A0BCF70B50047D /* app */ = {
+		1F459A99846BBAFFD50EFDC7 /* xcode-project */ = {
 			isa = PBXGroup;
 			children = (
-				FC1009CC5A233D34FFF3B045 /* entrypoint */,
+				76CB13E765F4DE0175E07AB4 /* model */,
 			);
-			path = app;
+			path = "xcode-project";
 			sourceTree = "<group>";
 		};
-		A860691347B4FCD02DF1D6DA /* App */ = {
+		26C98AF706A40312437B92CC /* entities */ = {
 			isa = PBXGroup;
 			children = (
-				9065CCC3D6A0BCF70B50047D /* app */,
-				6205FD6A9CB98DCE31D26875 /* entities */,
-				D498535E16A6C5DF9CD20654 /* features */,
-				8EEEB234A744BD4D444C5D52 /* pages */,
-				4D84E13F64344E5C495E8A96 /* shared */,
+				1F459A99846BBAFFD50EFDC7 /* xcode-project */,
 			);
-			path = App;
+			path = entities;
 			sourceTree = "<group>";
 		};
-		B59FE10BD2FA21C8B9ABA186 = {
+		2FB456A9299064FBA75EDCAA = {
 			isa = PBXGroup;
 			children = (
-				C745E39037243706B62724E0 /* Assets */,
-				873E7EADD85AFB8C7B03F23D /* Sources */,
-				EB0B1E3257649AF53D2103EF /* Products */,
+				5582D0701123530104D109C1 /* Assets */,
+				12289994C46188C0577FCED0 /* Sources */,
+				930FE0F6FDC9BA6652F27026 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C745E39037243706B62724E0 /* Assets */ = {
+		5582D0701123530104D109C1 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */,
+				2DE140C724FAE125E8E63C22 /* AppIcon.icon */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		CB2B61A3FE239D116C7FC557 /* xcode-mcp */ = {
+		6A05AF3EDC8029FE88DDE1E2 /* entrypoint */ = {
 			isa = PBXGroup;
 			children = (
-				6C6551876187402FC9FAE244 /* XcodeMCPClient.swift */,
-				7B38E01624709212E86038F4 /* XcodeMCPServicing.swift */,
+				70F35FB8354620ED83910184 /* XcodeMiniApp.swift */,
 			);
-			path = "xcode-mcp";
+			path = entrypoint;
 			sourceTree = "<group>";
 		};
-		D498535E16A6C5DF9CD20654 /* features */ = {
+		75150EB16EC6CA070D42C4ED /* app */ = {
 			isa = PBXGroup;
 			children = (
-				569AFC807528C1D46396BCE5 /* run-project */,
+				6A05AF3EDC8029FE88DDE1E2 /* entrypoint */,
 			);
-			path = features;
+			path = app;
 			sourceTree = "<group>";
 		};
-		EB0B1E3257649AF53D2103EF /* Products */ = {
+		76CB13E765F4DE0175E07AB4 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				ED27D5C7C382005F7718BF1A /* XcodeMini.app */,
+				E83573A24A5969775A0926FC /* ProjectContainer.swift */,
+				FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		930FE0F6FDC9BA6652F27026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90C45F3D62639775308381BF /* Xcode mini.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC1009CC5A233D34FFF3B045 /* entrypoint */ = {
+		9CA62FDC543F79F2DC642571 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				EC1D2EE43013EB11B21B5608 /* XcodeMiniApp.swift */,
+				1FC9163B5DCC360AA0795E40 /* RunProjectPage.swift */,
 			);
-			path = entrypoint;
+			path = ui;
+			sourceTree = "<group>";
+		};
+		B2EF8A021BDAD9788CDF505C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BA481779EC286CFDA2B085FD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				75150EB16EC6CA070D42C4ED /* app */,
+				26C98AF706A40312437B92CC /* entities */,
+				BB54AD830A611AE0E93FAD9B /* features */,
+				1DB3DD72D483CB21522B4B16 /* pages */,
+				16E7360391670E48C9744489 /* shared */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BB54AD830A611AE0E93FAD9B /* features */ = {
+			isa = PBXGroup;
+			children = (
+				BE6577C880FF4E7F97D5BE86 /* run-project */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		BE6577C880FF4E7F97D5BE86 /* run-project */ = {
+			isa = PBXGroup;
+			children = (
+				B2EF8A021BDAD9788CDF505C /* model */,
+			);
+			path = "run-project";
+			sourceTree = "<group>";
+		};
+		C6BFFAE7290127F0AF4849AC /* api */ = {
+			isa = PBXGroup;
+			children = (
+				D2625230B852B1109AD2BB7F /* xcode-mcp */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		D2625230B852B1109AD2BB7F /* xcode-mcp */ = {
+			isa = PBXGroup;
+			children = (
+				A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */,
+				382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */,
+			);
+			path = "xcode-mcp";
+			sourceTree = "<group>";
+		};
+		E2098CFFBCF5CC2E973B446F /* run-project */ = {
+			isa = PBXGroup;
+			children = (
+				9CA62FDC543F79F2DC642571 /* ui */,
+			);
+			path = "run-project";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8415D27F7D5501E626D29903 /* XcodeMini */ = {
+		42863B70F58B1B3C66AF5DE0 /* Xcode mini */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAA733E9EA1B0555C0BFBD6C /* Build configuration list for PBXNativeTarget "XcodeMini" */;
+			buildConfigurationList = 0F3DEF21E701D552CA368644 /* Build configuration list for PBXNativeTarget "Xcode mini" */;
 			buildPhases = (
-				D74F1CB3EAF7F69B603812A0 /* Sources */,
-				A4F578D978698681FC477138 /* Resources */,
-				C197DBAE11568CCB8D44FD23 /* Frameworks */,
+				2C2D4D1E4B5231BAAB0B373C /* Sources */,
+				83CAFB3FE65A01CFB076513C /* Resources */,
+				76FC1EC24A574D930D2EAF74 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = XcodeMini;
+			name = "Xcode mini";
 			packageProductDependencies = (
-				F851495D305FEE48287F7820 /* NestedA11yIDs */,
+				F1CF5E0EB8F684FF72D95BB2 /* NestedA11yIDs */,
 			);
-			productName = XcodeMini;
-			productReference = ED27D5C7C382005F7718BF1A /* XcodeMini.app */;
+			productName = "Xcode mini";
+			productReference = 90C45F3D62639775308381BF /* Xcode mini.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3D630A1F3BAE31E451D3D9DD /* Project object */ = {
+		429FBAA1E588E1C692892F64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					8415D27F7D5501E626D29903 = {
+					42863B70F58B1B3C66AF5DE0 = {
 						DevelopmentTeam = P8T2366K8X;
 					};
 				};
 			};
-			buildConfigurationList = CB668C4F819D356B99D4C1F0 /* Build configuration list for PBXProject "XcodeMini" */;
+			buildConfigurationList = 89F5FCF4A26C263160732C1A /* Build configuration list for PBXProject "Xcode mini" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
 				en,
 			);
-			mainGroup = B59FE10BD2FA21C8B9ABA186;
+			mainGroup = 2FB456A9299064FBA75EDCAA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */,
+				AA9A9FD0DB0F7D84C94AE65D /* XCRemoteSwiftPackageReference "NestedA11yIDs" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = EB0B1E3257649AF53D2103EF /* Products */;
+			productRefGroup = 930FE0F6FDC9BA6652F27026 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8415D27F7D5501E626D29903 /* XcodeMini */,
+				42863B70F58B1B3C66AF5DE0 /* Xcode mini */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A4F578D978698681FC477138 /* Resources */ = {
+		83CAFB3FE65A01CFB076513C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B4E78C06B1EF285A0AB031 /* AppIcon.icon in Resources */,
+				458AD2FC5B4EC909F69985C4 /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D74F1CB3EAF7F69B603812A0 /* Sources */ = {
+		2C2D4D1E4B5231BAAB0B373C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB90F15040282EC04FF50A1E /* ProjectContainer.swift in Sources */,
-				84954D4B6DF1645106932A76 /* RunProjectModel.swift in Sources */,
-				29892C9331552676E5C37B13 /* RunProjectPage.swift in Sources */,
-				1AC09304629F5DEF9F0C75F0 /* XcodeMCPClient.swift in Sources */,
-				0EB68F764A04F4242932FFF5 /* XcodeMCPServicing.swift in Sources */,
-				F7D55E420D3CBBECF175F30C /* XcodeMiniApp.swift in Sources */,
-				1DD5D2A1E1E1E6558EE72DDA /* XcodeProject.swift in Sources */,
+				D79FBCF0F3D799C8A031D751 /* ProjectContainer.swift in Sources */,
+				F6DC842DEA8A581331CA7BAB /* RunProjectModel.swift in Sources */,
+				AECB03C0639EF6C117EF6EDB /* RunProjectPage.swift in Sources */,
+				E5FCE66A54A15E45C2012B4F /* XcodeMCPClient.swift in Sources */,
+				08695D2DE9EA363D421104B5 /* XcodeMCPServicing.swift in Sources */,
+				68CAF5A0460371B86D23FD9C /* XcodeMiniApp.swift in Sources */,
+				4F9EAF28A54B8974A51FD866 /* XcodeProject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		12CD9234334D0D0E363F9680 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGNING_ALLOWED = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		569079ECAC67266DCD560E2F /* Release */ = {
+		0AF7ECB00872DDBE49D4EDB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -338,10 +324,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 3;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P8T2366K8X;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -351,22 +339,39 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Xcode Mini";
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode mini";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.egormerkushev.xcodemini;
-				PRODUCT_NAME = "Xcode Mini";
+				PRODUCT_NAME = "Xcode mini";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
-		A4AF25ADA7019C0E24B6F50C /* Release */ = {
+		0DA1D9EC84C34C109A600D51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode mini";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_NAME = "Xcode mini";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E793A5B92E2EDDBC494704FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -375,15 +380,17 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode mini";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				PRODUCT_NAME = "Xcode mini";
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		D9057DB399DD8C76111206B2 /* Debug */ = {
+		F4703064B39A846ED7C84BCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -418,10 +425,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 3;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P8T2366K8X;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -437,7 +446,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Xcode Mini";
+				INFOPLIST_KEY_CFBundleDisplayName = "Xcode mini";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.1.1;
@@ -445,8 +454,9 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.egormerkushev.xcodemini;
-				PRODUCT_NAME = "Xcode Mini";
+				PRODUCT_NAME = "Xcode mini";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -456,20 +466,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CB668C4F819D356B99D4C1F0 /* Build configuration list for PBXProject "XcodeMini" */ = {
+		0F3DEF21E701D552CA368644 /* Build configuration list for PBXNativeTarget "Xcode mini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D9057DB399DD8C76111206B2 /* Debug */,
-				569079ECAC67266DCD560E2F /* Release */,
+				0DA1D9EC84C34C109A600D51 /* Debug */,
+				E793A5B92E2EDDBC494704FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		FAA733E9EA1B0555C0BFBD6C /* Build configuration list for PBXNativeTarget "XcodeMini" */ = {
+		89F5FCF4A26C263160732C1A /* Build configuration list for PBXProject "Xcode mini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12CD9234334D0D0E363F9680 /* Debug */,
-				A4AF25ADA7019C0E24B6F50C /* Release */,
+				F4703064B39A846ED7C84BCA /* Debug */,
+				0AF7ECB00872DDBE49D4EDB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -477,7 +487,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */ = {
+		AA9A9FD0DB0F7D84C94AE65D /* XCRemoteSwiftPackageReference "NestedA11yIDs" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SoundBlaster/NestedA11yIDs.git";
 			requirement = {
@@ -488,12 +498,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F851495D305FEE48287F7820 /* NestedA11yIDs */ = {
+		F1CF5E0EB8F684FF72D95BB2 /* NestedA11yIDs */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */;
+			package = AA9A9FD0DB0F7D84C94AE65D /* XCRemoteSwiftPackageReference "NestedA11yIDs" */;
 			productName = NestedA11yIDs;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 3D630A1F3BAE31E451D3D9DD /* Project object */;
+	rootObject = 429FBAA1E588E1C692892F64 /* Project object */;
 }

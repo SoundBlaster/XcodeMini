@@ -28,7 +28,7 @@ first time they connect. Leave `--unsafe-always-allow-all-agents` disabled.
 
 ```sh
 xcodegen generate
-xcodebuild -project XcodeMini.xcodeproj -scheme XcodeMini -destination 'platform=macOS' build
+xcodebuild -project 'Xcode mini.xcodeproj' -scheme 'Xcode mini' -destination 'platform=macOS' build
 ```
 
 ## Architecture and lint
@@ -45,7 +45,7 @@ make lint
 
 ## Release 0.1.1
 
-Download the notarized `XcodeMini-0.1.1-macos-notarized.zip` from the [v0.1.1 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.1), unzip it, and move `Xcode Mini.app` to Applications.
+Download the notarized `XcodeMini-0.1.1-macos-notarized.zip` from the [v0.1.1 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.1), unzip it, and move `Xcode mini.app` to Applications.
 
 ## Developer ID release
 
