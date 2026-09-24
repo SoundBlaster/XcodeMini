@@ -1,0 +1,121 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "display-p3:0.08259,0.68441,0.39347,1.00000",
+              "srgb:0.06568,0.82453,0.26609,1.00000"
+            ]
+          },
+          "glass" : true,
+          "image-name" : "Круг.png",
+          "name" : "Круг",
+          "position" : {
+            "scale" : 0.1,
+            "translation-in-points" : [
+              -160,
+              -358
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "display-p3:1.00000,0.85770,0.21264,1.00000",
+              "srgb:1.00000,0.84568,0.10768,1.00000"
+            ]
+          },
+          "glass" : true,
+          "image-name" : "Круг.png",
+          "name" : "Круг",
+          "position" : {
+            "scale" : 0.1,
+            "translation-in-points" : [
+              -264,
+              -358
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "linear-gradient" : [
+              "display-p3:1.01865,0.33517,0.21264,1.00000",
+              "srgb:1.00000,0.42793,0.10768,1.00000"
+            ]
+          },
+          "glass" : true,
+          "image-name" : "Круг.png",
+          "name" : "Круг",
+          "position" : {
+            "scale" : 0.1,
+            "translation-in-points" : [
+              -363,
+              -358
+            ]
+          }
+        },
+        {
+          "image-name" : "Треугольник.png",
+          "name" : "Треугольник",
+          "position" : {
+            "scale" : 0.8,
+            "translation-in-points" : [
+              41,
+              20
+            ]
+          }
+        },
+        {
+          "image-name" : "Круг.png",
+          "name" : "Круг",
+          "position" : {
+            "scale" : 0.8,
+            "translation-in-points" : [
+              15.899999999999977,
+              58
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    },
+    {
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "srgb:0.98239,0.98548,0.97620,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "Основной.png",
+          "name" : "Основной"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.3
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
