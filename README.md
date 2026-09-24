@@ -1,4 +1,4 @@
-# Xcode Mini
+# Xcode mini
 
 ![Xcode Mini running on macOS](Screenshots/XcodeMini.png)
 
