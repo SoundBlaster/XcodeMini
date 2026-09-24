@@ -45,14 +45,14 @@ jobs:
       - name: Generate and verify Xcode project
         run: |
           xcodegen generate --spec project.yml
-          git diff --exit-code -- XcodeMini.xcodeproj/project.pbxproj
+          git diff --exit-code -- 'Xcode mini.xcodeproj/project.pbxproj'
 
       - name: Build app
         run: |
           set -o pipefail
           xcodebuild -quiet \
-            -project XcodeMini.xcodeproj \
-            -scheme XcodeMini \
+            -project 'Xcode mini.xcodeproj' \
+            -scheme 'Xcode mini' \
             -configuration Release \
             -destination 'generic/platform=macOS' \
             -derivedDataPath "$RUNNER_TEMP/DerivedData" \

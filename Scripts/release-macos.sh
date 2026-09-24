@@ -5,9 +5,9 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TEAM_ID="P8T2366K8X"
 ASC_PROFILE="${ASC_PROFILE:-}"
 OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/build/macos-release-$(date +%Y%m%d%H%M%S)}"
-ARCHIVE_PATH="$OUTPUT_DIR/XcodeMini.xcarchive"
+ARCHIVE_PATH="$OUTPUT_DIR/Xcode mini.xcarchive"
 EXPORT_DIR="$OUTPUT_DIR/export"
-APP_PATH="$EXPORT_DIR/Xcode Mini.app"
+APP_PATH="$EXPORT_DIR/Xcode mini.app"
 
 if [[ -z "$ASC_PROFILE" ]]; then
 	echo "Set ASC_PROFILE to the App Store Connect API profile authorized for notarization." >&2
@@ -22,8 +22,8 @@ fi
 mkdir -p "$OUTPUT_DIR"
 
 xcodebuild archive \
-	-project "$ROOT_DIR/XcodeMini.xcodeproj" \
-	-scheme XcodeMini \
+	-project "$ROOT_DIR/Xcode mini.xcodeproj" \
+	-scheme "Xcode mini" \
 	-configuration Release \
 	-destination "generic/platform=macOS" \
 	-archivePath "$ARCHIVE_PATH" \

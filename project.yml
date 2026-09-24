@@ -1,25 +1,30 @@
-name: XcodeMini
+name: Xcode mini
 options:
+  xcodeVersion: "27.0"
   deploymentTarget:
     macOS: "15.0"
 settings:
   base:
     PRODUCT_BUNDLE_IDENTIFIER: ru.egormerkushev.xcodemini
-    PRODUCT_NAME: Xcode Mini
+    PRODUCT_NAME: Xcode mini
     DEVELOPMENT_TEAM: P8T2366K8X
     MARKETING_VERSION: 0.1.1
     CURRENT_PROJECT_VERSION: 3
     SWIFT_VERSION: "6.0"
     MACOSX_DEPLOYMENT_TARGET: "15.0"
     GENERATE_INFOPLIST_FILE: YES
-    INFOPLIST_KEY_CFBundleDisplayName: Xcode Mini
+    INFOPLIST_KEY_CFBundleDisplayName: Xcode mini
     INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    STRING_CATALOG_GENERATE_SYMBOLS: YES
 packages:
   NestedA11yIDs:
     url: https://github.com/SoundBlaster/NestedA11yIDs.git
     from: 1.0.0
 targets:
   XcodeMini:
+    name: Xcode mini
     type: application
     platform: macOS
     sources:
@@ -34,9 +39,20 @@ targets:
       base:
         CODE_SIGNING_ALLOWED: NO
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        PRODUCT_NAME: Xcode mini
+        INFOPLIST_KEY_CFBundleDisplayName: Xcode mini
       configs:
         Release:
           CODE_SIGNING_ALLOWED: YES
           CODE_SIGN_STYLE: Manual
           CODE_SIGN_IDENTITY: Developer ID Application
           ENABLE_HARDENED_RUNTIME: YES
+schemes:
+  Xcode mini:
+    build:
+      targets:
+        Xcode mini: all
+    run:
+      config: Debug
+    archive:
+      config: Release
