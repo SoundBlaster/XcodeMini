@@ -16,22 +16,36 @@ final class XcodeMCPClient {
     private var receiveBuffer = Data()
     private var nextID = 1
     private var isInitialized = false
+    private var workspaceIdentifiersByPath: [String: String] = [:]
 
     func openWorkspace(at url: URL) async throws -> String {
         try ensureHeadlessMode()
         try await ensureInitialized()
-        let result = try await callTool("XcodeOpenWorkspace", arguments: ["path": url.path])
-        return result
+        let response = try await callToolResponse("XcodeOpenWorkspace", arguments: ["path": url.path])
+        let structured = response["structuredContent"] as? [String: Any]
+        guard let workspaceIdentifier = structured?["workspaceIdentifier"] as? String,
+              !workspaceIdentifier.isEmpty else {
+            throw MCPError.toolFailure(extractText(from: response) ?? "Xcode opened the project but didn’t return a workspace identifier.")
+        }
+        workspaceIdentifiersByPath[url.standardizedFileURL.path] = workspaceIdentifier
+        return structured?["message"] as? String ?? extractText(from: response) ?? "Workspace opened."
     }
 
     func runProject(at url: URL) async throws -> String {
         try await ensureInitialized()
-        return try await callTool("RunProject", arguments: ["workspaceIdentifier": url.path])
+        return try await callTool("RunProject", arguments: ["workspaceIdentifier": workspaceIdentifier(for: url)])
     }
 
     func stopProject(at url: URL) async throws -> String {
         try await ensureInitialized()
-        return try await callTool("StopProject", arguments: ["workspaceIdentifier": url.path])
+        return try await callTool("StopProject", arguments: ["workspaceIdentifier": workspaceIdentifier(for: url)])
+    }
+
+    private func workspaceIdentifier(for url: URL) throws -> String {
+        guard let identifier = workspaceIdentifiersByPath[url.standardizedFileURL.path] else {
+            throw MCPError.toolFailure("Open the selected project in Xcode before running or stopping it.")
+        }
+        return identifier
     }
 
     private func ensureInitialized() async throws {
@@ -87,10 +101,7 @@ final class XcodeMCPClient {
     }
 
     private func callTool(_ name: String, arguments: [String: Any]) async throws -> String {
-        let response = try await sendRequest("tools/call", params: [
-            "name": name,
-            "arguments": arguments,
-        ], timeout: 30 * 60)
+        let response = try await callToolResponse(name, arguments: arguments)
 
         if response["isError"] as? Bool == true {
             throw MCPError.toolFailure(extractText(from: response) ?? "Xcode could not complete the request.")
@@ -106,6 +117,13 @@ final class XcodeMCPClient {
         if let stopResult = structured?["stopResult"] as? String { return stopResult }
         if let text = extractText(from: response) { return text }
         return ""
+    }
+
+    private func callToolResponse(_ name: String, arguments: [String: Any]) async throws -> [String: Any] {
+        try await sendRequest("tools/call", params: [
+            "name": name,
+            "arguments": arguments,
+        ], timeout: 30 * 60)
     }
 
     private func sendRequest(
