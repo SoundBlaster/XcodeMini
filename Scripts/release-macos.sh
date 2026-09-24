@@ -8,7 +8,6 @@ OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/build/macos-release-$(date +%Y%m%d%H%M%S)}"
 ARCHIVE_PATH="$OUTPUT_DIR/XcodeMini.xcarchive"
 EXPORT_DIR="$OUTPUT_DIR/export"
 APP_PATH="$EXPORT_DIR/Xcode Mini.app"
-ZIP_PATH="$OUTPUT_DIR/Xcode-Mini-macos.zip"
 
 if [[ -z "$ASC_PROFILE" ]]; then
 	echo "Set ASC_PROFILE to the App Store Connect API profile authorized for notarization." >&2
@@ -38,6 +37,9 @@ xcodebuild -exportArchive \
 	-archivePath "$ARCHIVE_PATH" \
 	-exportPath "$EXPORT_DIR" \
 	-exportOptionsPlist "$ROOT_DIR/ExportOptions-DeveloperID.plist"
+
+APP_VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP_PATH/Contents/Info.plist")"
+ZIP_PATH="$OUTPUT_DIR/XcodeMini-$APP_VERSION-macos-notarized.zip"
 
 codesign --verify --deep --strict --verbose=2 "$APP_PATH"
 codesign -dv --verbose=4 "$APP_PATH" 2>&1 | grep -E '^(Authority|Timestamp)='
