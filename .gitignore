@@ -1,6 +1,7 @@
 .DS_Store
 DerivedData/
 build/
+.fsd-ios-tooling/
 
 # Xcode user-specific state and generated project metadata
 **/xcuserdata/

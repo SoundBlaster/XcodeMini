@@ -1,0 +1,20 @@
+included:
+  - Sources/App
+
+excluded:
+  - build
+  - DerivedData
+  - .fsd-ios-tooling
+
+disabled_rules:
+  - trailing_comma
+
+line_length:
+  warning: 140
+  error: 180
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  excluded:
+    - id

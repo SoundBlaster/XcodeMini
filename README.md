@@ -31,6 +31,18 @@ xcodegen generate
 xcodebuild -project XcodeMini.xcodeproj -scheme XcodeMini -destination 'platform=macOS' build
 ```
 
+## Architecture and lint
+
+The app uses a small, single-module FSD layout. See [ARCHITECTURE.md](ARCHITECTURE.md)
+for layer responsibilities and dependency direction. To run the same strict
+SwiftLint and architecture checks used in CI:
+
+```sh
+brew install swiftlint
+make setup-fsd-tooling
+make lint
+```
+
 ## Release 0.1.1
 
 Download the notarized `XcodeMini-0.1.1-macos-notarized.zip` from the [v0.1.1 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.1), unzip it, and move `Xcode Mini.app` to Applications.
