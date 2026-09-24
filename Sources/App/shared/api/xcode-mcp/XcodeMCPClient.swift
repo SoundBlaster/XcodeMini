@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-final class XcodeMCPClient {
+final class XcodeMCPClient: XcodeMCPServicing {
     private struct JSONRPCResponse: @unchecked Sendable {
         let values: [String: Any]
     }

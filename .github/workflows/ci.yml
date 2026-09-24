@@ -31,11 +31,25 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Checkout FSD iOS lint tooling
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: SoundBlaster/FSD
+          ref: 38dc4261e589d1754820aac6c79de5310e0d0ac3 # fsd-ios v0.4.0
+          path: .fsd-ios-tooling
+          persist-credentials: false
+
       - name: Verify Xcode toolchain
         run: |
           xcodebuild -version
           swift --version
           [[ "$(xcodebuild -version | awk '/^Xcode / { print $2 }')" == 27.* ]]
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Run architecture and style lint
+        run: make lint
 
       - name: Install pinned XcodeGen
         run: |

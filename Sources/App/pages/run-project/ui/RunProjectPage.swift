@@ -2,8 +2,8 @@ import SwiftUI
 import NestedA11yIDs
 import UniformTypeIdentifiers
 
-struct ContentView: View {
-    @Bindable var model: AppModel
+struct RunProjectPage: View {
+    @Bindable var model: RunProjectModel
 
     private let acceptedTypes: [UTType] = [
         .folder,
@@ -19,7 +19,7 @@ struct ContentView: View {
             ZStack {
                 RunControl(
                     isActive: model.phase.isActive,
-                    hasProject: model.projectURL != nil,
+                    hasProject: model.project != nil,
                     status: model.phase.title,
                     diameter: displayedControlDiameter,
                     symbolSize: min(84, displayedControlDiameter * 0.5),
@@ -50,12 +50,21 @@ struct ContentView: View {
                 model.select(url)
             }
         }
-        .onDrop(of: [UTType.fileURL], isTargeted: nil, perform: model.handleDrop)
+        .onDrop(of: [UTType.fileURL], isTargeted: nil, perform: handleDrop)
         .onChange(of: model.phase) { _, newValue in
             if newValue == .failed {
                 NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
             }
         }
+    }
+
+    private func handleDrop(_ providers: [NSItemProvider]) -> Bool {
+        guard let provider = providers.first else { return false }
+        _ = provider.loadObject(ofClass: URL.self) { url, _ in
+            guard let url else { return }
+            Task { @MainActor in model.select(url) }
+        }
+        return true
     }
 }
 
@@ -105,15 +114,15 @@ private struct RunControl: View {
     }
 
     private var accessibilityLabel: String {
-        if isActive { "Stop Xcode project" }
-        else if hasProject { "Run Xcode project" }
-        else { "Choose an Xcode project" }
+        if isActive { "Stop Xcode project" } else if hasProject { "Run Xcode project" } else { "Choose an Xcode project" }
     }
 
     private var accessibilityHint: String {
-        if isActive { "Stops the selected Xcode project" }
-        else if hasProject { "Builds and runs the selected Xcode project" }
-        else { "Opens a dialog to choose an Xcode project or workspace" }
+        if isActive { "Stops the selected Xcode project" } else if hasProject {
+            "Builds and runs the selected Xcode project"
+        } else {
+            "Opens a dialog to choose an Xcode project or workspace"
+        }
     }
 }
 
@@ -131,7 +140,7 @@ private struct ButtonGlassSurface: View {
 
 private struct StatusBar: View {
     let projectName: String
-    let phase: AppModel.Phase
+    let phase: RunProjectModel.Phase
     let message: String?
 
     var body: some View {
@@ -192,12 +201,12 @@ private struct StatusBar: View {
 }
 
 #Preview("Default") {
-    ContentView(model: AppModel())
+    RunProjectPage(model: RunProjectModel(xcode: XcodeMCPClient()))
         .frame(width: 480, height: 420)
 }
 
 #Preview("Dark") {
-    ContentView(model: AppModel())
+    RunProjectPage(model: RunProjectModel(xcode: XcodeMCPClient()))
         .frame(width: 480, height: 420)
         .preferredColorScheme(.dark)
 }

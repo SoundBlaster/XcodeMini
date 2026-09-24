@@ -1,6 +1,6 @@
 import Foundation
 
-enum ProjectContainer {
+enum XcodeProjectResolver {
     enum ResolutionError: LocalizedError {
         case notFound
         case ambiguous

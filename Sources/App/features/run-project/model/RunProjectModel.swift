@@ -1,31 +1,9 @@
-import SwiftUI
-import UniformTypeIdentifiers
-
-@main
-struct XcodeMiniApp: App {
-    @State private var model = AppModel()
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView(model: model)
-                .frame(minWidth: 420, minHeight: 360)
-        }
-        .defaultSize(width: 480, height: 420)
-        .windowStyle(.hiddenTitleBar)
-        .commands {
-            CommandGroup(replacing: .newItem) {
-                Button("Open Project…") {
-                    model.isShowingImporter = true
-                }
-                .keyboardShortcut("o", modifiers: .command)
-            }
-        }
-    }
-}
+import Foundation
+import Observation
 
 @MainActor
 @Observable
-final class AppModel {
+final class RunProjectModel {
     enum Phase: Equatable {
         case ready
         case starting
@@ -48,27 +26,30 @@ final class AppModel {
         }
     }
 
-    var projectURL: URL?
+    var project: XcodeProject?
     var phase: Phase = .ready
     var message: String?
     var isShowingImporter = false
 
-    private let xcode = XcodeMCPClient()
+    private let xcode: any XcodeMCPServicing
 
     var projectName: String {
-        projectURL?.deletingPathExtension().lastPathComponent ?? "Choose a project"
+        project?.name ?? "Choose a project"
     }
 
     func select(_ url: URL) {
         do {
-            let container = try ProjectContainer.resolve(from: url)
-            projectURL = container
+            project = try XcodeProject.resolve(from: url)
             phase = .ready
             message = nil
         } catch {
             message = error.localizedDescription
             phase = .failed
         }
+    }
+
+    init(xcode: any XcodeMCPServicing) {
+        self.xcode = xcode
     }
 
     func toggleRun() {
@@ -80,7 +61,7 @@ final class AppModel {
     }
 
     private func run() {
-        guard let projectURL else {
+        guard let project else {
             isShowingImporter = true
             return
         }
@@ -89,9 +70,9 @@ final class AppModel {
         message = nil
         Task {
             do {
-                _ = try await xcode.openWorkspace(at: projectURL)
+                _ = try await xcode.openWorkspace(at: project.url)
                 guard phase == .starting else { return }
-                let result = try await xcode.runProject(at: projectURL)
+                let result = try await xcode.runProject(at: project.url)
                 guard phase == .starting else { return }
                 phase = .running
                 message = result
@@ -104,11 +85,11 @@ final class AppModel {
     }
 
     private func stop() {
-        guard let projectURL else { return }
+        guard let project else { return }
         phase = .stopping
         Task {
             do {
-                let result = try await xcode.stopProject(at: projectURL)
+                let result = try await xcode.stopProject(at: project.url)
                 phase = .ready
                 message = result
             } catch {
@@ -116,14 +97,5 @@ final class AppModel {
                 message = error.localizedDescription
             }
         }
-    }
-
-    func handleDrop(_ providers: [NSItemProvider]) -> Bool {
-        guard let provider = providers.first else { return false }
-        _ = provider.loadObject(ofClass: URL.self) { [weak self] url, _ in
-            guard let url else { return }
-            Task { @MainActor in self?.select(url) }
-        }
-        return true
     }
 }
