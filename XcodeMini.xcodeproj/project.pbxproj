@@ -10,6 +10,7 @@
 		04B4E78C06B1EF285A0AB031 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */; };
 		0719281EF758528757D88BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4442AD9073730FAA76E1F29 /* ContentView.swift */; };
 		098A79BEB346882801B88C56 /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326003A064DABFACE505590 /* ProjectContainer.swift */; };
+		407151CEAE112FB543D55C39 /* NestedA11yIDs in Frameworks */ = {isa = PBXBuildFile; productRef = F851495D305FEE48287F7820 /* NestedA11yIDs */; };
 		64E60D03571F5C0751110E8B /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ACA4DEE6E5EF0140190BE1 /* XcodeMCPClient.swift */; };
 		E96567152CCE0077840C1707 /* XcodeMiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5733649BE089080F09F1EC24 /* XcodeMiniApp.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +23,17 @@
 		E4442AD9073730FAA76E1F29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED27D5C7C382005F7718BF1A /* XcodeMini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeMini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C197DBAE11568CCB8D44FD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407151CEAE112FB543D55C39 /* NestedA11yIDs in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		873E7EADD85AFB8C7B03F23D /* Sources */ = {
@@ -69,6 +81,7 @@
 			buildPhases = (
 				D74F1CB3EAF7F69B603812A0 /* Sources */,
 				A4F578D978698681FC477138 /* Resources */,
+				C197DBAE11568CCB8D44FD23 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -76,6 +89,7 @@
 			);
 			name = XcodeMini;
 			packageProductDependencies = (
+				F851495D305FEE48287F7820 /* NestedA11yIDs */,
 			);
 			productName = XcodeMini;
 			productReference = ED27D5C7C382005F7718BF1A /* XcodeMini.app */;
@@ -104,6 +118,9 @@
 			);
 			mainGroup = B59FE10BD2FA21C8B9ABA186;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EB0B1E3257649AF53D2103EF /* Products */;
 			projectDirPath = "";
@@ -326,6 +343,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SoundBlaster/NestedA11yIDs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F851495D305FEE48287F7820 /* NestedA11yIDs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB2ABF9BEC0A08E620DEB408 /* XCRemoteSwiftPackageReference "NestedA11yIDs" */;
+			productName = NestedA11yIDs;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D630A1F3BAE31E451D3D9DD /* Project object */;
 }

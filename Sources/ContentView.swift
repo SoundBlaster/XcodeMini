@@ -1,4 +1,5 @@
 import SwiftUI
+import NestedA11yIDs
 import UniformTypeIdentifiers
 
 struct ContentView: View {
@@ -11,18 +12,34 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        ZStack {
-            RunControl(isRunning: model.phase.isActive, action: model.toggleRun)
+        GeometryReader { geometry in
+            let maxControlDiameter = min(geometry.size.width * 0.55, geometry.size.height * 0.68)
+            let displayedControlDiameter = min(170, maxControlDiameter)
 
-            VStack(spacing: 0) {
-                AppHeader()
-                    .padding(.top, 30)
+            ZStack {
+                RunControl(
+                    isActive: model.phase.isActive,
+                    hasProject: model.projectURL != nil,
+                    status: model.phase.title,
+                    diameter: displayedControlDiameter,
+                    symbolSize: min(84, displayedControlDiameter * 0.5),
+                    action: model.toggleRun
+                )
+                .nestedAccessibilityIdentifier("run")
 
-                Spacer(minLength: 0)
+                VStack(spacing: 0) {
+                    AppHeader()
+                        .nestedAccessibilityIdentifier("header")
+                        .padding(.top, 30)
 
-                StatusBar(projectName: model.projectName, phase: model.phase, message: model.message)
+                    Spacer(minLength: 0)
+
+                    StatusBar(projectName: model.projectName, phase: model.phase, message: model.message)
+                        .nestedAccessibilityIdentifier("status")
+                }
             }
         }
+        .a11yRoot("xcodeMini")
         .background(Color(nsColor: .windowBackgroundColor).ignoresSafeArea())
         .fileImporter(
             isPresented: $model.isShowingImporter,
@@ -47,16 +64,20 @@ private struct AppHeader: View {
         VStack(spacing: 4) {
             Text("Xcode mini")
                 .font(.system(.title2, design: .rounded, weight: .medium))
+                .accessibilityHeading(.h1)
             Text("Build small. Dream big.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
-        .accessibilityElement(children: .combine)
     }
 }
 
 private struct RunControl: View {
-    let isRunning: Bool
+    let isActive: Bool
+    let hasProject: Bool
+    let status: String
+    let diameter: CGFloat
+    let symbolSize: CGFloat
     let action: () -> Void
 
     var body: some View {
@@ -68,17 +89,31 @@ private struct RunControl: View {
                     }
                     .shadow(color: .black.opacity(0.09), radius: 20, y: 10)
 
-                Image(systemName: isRunning ? "stop.fill" : "play.fill")
-                    .font(.system(size: 84, weight: .medium))
+                Image(systemName: isActive ? "stop.fill" : "play.fill")
+                    .font(.system(size: symbolSize, weight: .medium))
                     .foregroundStyle(.primary)
-                    .offset(x: isRunning ? 0 : 4)
+                    .offset(x: isActive ? 0 : 4)
             }
-            .frame(width: 170, height: 170)
+            .frame(width: diameter, height: diameter)
             .contentShape(Circle())
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(isRunning ? "Stop" : "Play")
-        .accessibilityHint(isRunning ? "Stops the running Xcode project" : "Builds and runs the selected Xcode project")
+        .accessibilityLabel(accessibilityLabel)
+        .accessibilityValue(hasProject ? status : "No project selected")
+        .accessibilityHint(accessibilityHint)
+        .nestedAccessibilityIdentifier("toggle")
+    }
+
+    private var accessibilityLabel: String {
+        if isActive { "Stop Xcode project" }
+        else if hasProject { "Run Xcode project" }
+        else { "Choose an Xcode project" }
+    }
+
+    private var accessibilityHint: String {
+        if isActive { "Stops the selected Xcode project" }
+        else if hasProject { "Builds and runs the selected Xcode project" }
+        else { "Opens a dialog to choose an Xcode project or workspace" }
     }
 }
 
@@ -101,27 +136,45 @@ private struct StatusBar: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            Image(systemName: "hammer.fill")
-                .foregroundStyle(.secondary)
-            Text(projectName)
-                .lineLimit(1)
-                .truncationMode(.middle)
-
+            projectLabel(lineLimit: 1)
             Spacer(minLength: 18)
-
-            Circle()
-                .fill(indicatorColor)
-                .frame(width: 8, height: 8)
-            Text(statusText)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-                .help(message ?? phase.title)
+            statusLabel(lineLimit: 1)
         }
         .font(.caption)
         .padding(.horizontal, 16)
         .padding(.vertical, 9)
         .background(.bar)
         .overlay(alignment: .top) { Divider() }
+    }
+
+    private func projectLabel(lineLimit: Int) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: "hammer.fill")
+                .foregroundStyle(.secondary)
+                .accessibilityHidden(true)
+            Text(projectName)
+                .lineLimit(lineLimit)
+                .truncationMode(.middle)
+                .accessibilityLabel("Selected Xcode project")
+                .accessibilityValue(projectName)
+                .nestedAccessibilityIdentifier("project")
+        }
+    }
+
+    private func statusLabel(lineLimit: Int) -> some View {
+        HStack(spacing: 8) {
+            Circle()
+                .fill(indicatorColor)
+                .frame(width: 8, height: 8)
+                .accessibilityHidden(true)
+            Text(statusText)
+                .foregroundStyle(.secondary)
+                .lineLimit(lineLimit)
+                .help(message ?? phase.title)
+                .accessibilityLabel("Project status")
+                .accessibilityValue(statusText)
+                .nestedAccessibilityIdentifier("phase")
+        }
     }
 
     private var indicatorColor: Color {
@@ -136,4 +189,15 @@ private struct StatusBar: View {
     private var statusText: String {
         phase == .failed ? message ?? phase.title : phase.title
     }
+}
+
+#Preview("Default") {
+    ContentView(model: AppModel())
+        .frame(width: 480, height: 420)
+}
+
+#Preview("Dark") {
+    ContentView(model: AppModel())
+        .frame(width: 480, height: 420)
+        .preferredColorScheme(.dark)
 }
