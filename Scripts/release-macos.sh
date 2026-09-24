@@ -45,7 +45,7 @@ codesign --verify --deep --strict --verbose=2 "$APP_PATH"
 codesign -dv --verbose=4 "$APP_PATH" 2>&1 | grep -E '^(Authority|Timestamp)='
 
 ditto -c -k --keepParent "$APP_PATH" "$ZIP_PATH"
-asc --profile "$ASC_PROFILE" notarization submit --file "$ZIP_PATH" --wait
+xcrun asc --profile "$ASC_PROFILE" notarization submit --file "$ZIP_PATH" --wait
 
 xcrun stapler staple "$APP_PATH"
 xcrun stapler validate "$APP_PATH"
