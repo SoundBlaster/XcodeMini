@@ -43,9 +43,9 @@ make setup-fsd-tooling
 make lint
 ```
 
-## Release 0.1.1
+## Release 0.1.2
 
-Download the notarized `XcodeMini-0.1.1-macos-notarized.zip` from the [v0.1.1 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.1), unzip it, and move `Xcode mini.app` to Applications.
+Download the notarized `XcodeMini-0.1.2-macos-notarized.zip` from the [v0.1.2 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.2), unzip it, and move `Xcode mini.app` to Applications.
 
 ## Developer ID release
 
