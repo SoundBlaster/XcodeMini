@@ -14,6 +14,10 @@ settings:
     GENERATE_INFOPLIST_FILE: YES
     INFOPLIST_KEY_CFBundleDisplayName: Xcode Mini
     INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+packages:
+  NestedA11yIDs:
+    url: https://github.com/SoundBlaster/NestedA11yIDs.git
+    from: 1.0.0
 targets:
   XcodeMini:
     type: application
@@ -23,6 +27,9 @@ targets:
       - path: Assets/AppIcon.icon
         buildPhase: resources
         type: file
+    dependencies:
+      - package: NestedA11yIDs
+        product: NestedA11yIDs
     settings:
       base:
         CODE_SIGNING_ALLOWED: NO

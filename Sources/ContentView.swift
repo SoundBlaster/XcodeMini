@@ -1,4 +1,5 @@
 import SwiftUI
+import NestedA11yIDs
 import UniformTypeIdentifiers
 
 struct ContentView: View {
@@ -13,16 +14,20 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             RunControl(isRunning: model.phase.isActive, action: model.toggleRun)
+                .nestedAccessibilityIdentifier("run")
 
             VStack(spacing: 0) {
                 AppHeader()
+                    .nestedAccessibilityIdentifier("header")
                     .padding(.top, 30)
 
                 Spacer(minLength: 0)
 
                 StatusBar(projectName: model.projectName, phase: model.phase, message: model.message)
+                    .nestedAccessibilityIdentifier("status")
             }
         }
+        .a11yRoot("xcodeMini")
         .background(Color(nsColor: .windowBackgroundColor).ignoresSafeArea())
         .fileImporter(
             isPresented: $model.isShowingImporter,
@@ -79,6 +84,7 @@ private struct RunControl: View {
         .buttonStyle(.plain)
         .accessibilityLabel(isRunning ? "Stop" : "Play")
         .accessibilityHint(isRunning ? "Stops the running Xcode project" : "Builds and runs the selected Xcode project")
+        .nestedAccessibilityIdentifier("toggle")
     }
 }
 
@@ -103,19 +109,23 @@ private struct StatusBar: View {
         HStack(spacing: 8) {
             Image(systemName: "hammer.fill")
                 .foregroundStyle(.secondary)
+                .accessibilityHidden(true)
             Text(projectName)
                 .lineLimit(1)
                 .truncationMode(.middle)
+                .nestedAccessibilityIdentifier("project")
 
             Spacer(minLength: 18)
 
             Circle()
                 .fill(indicatorColor)
                 .frame(width: 8, height: 8)
+                .accessibilityHidden(true)
             Text(statusText)
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
                 .help(message ?? phase.title)
+                .nestedAccessibilityIdentifier("phase")
         }
         .font(.caption)
         .padding(.horizontal, 16)
