@@ -1,13 +1,11 @@
 # Xcode Mini
 
+![Xcode Mini running on macOS](Screenshots/XcodeMini.png)
+
 A small macOS front end for the Xcode 27 MCP server. Open an `.xcodeproj` or
 `.xcworkspace`, or drop one project folder onto the window, then press Play.
 Xcode Mini calls `XcodeOpenWorkspace`, `RunProject`, and `StopProject` through
 Apple's `xcrun mcpbridge`; it does not invoke `xcodebuild` itself.
-
-## Screenshot
-
-![Xcode Mini running on macOS](Screenshots/XcodeMini.jpg)
 
 ## Requirements
 
