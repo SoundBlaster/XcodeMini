@@ -20,9 +20,13 @@ targets:
     platform: macOS
     sources:
       - path: Sources
+      - path: Assets/AppIcon.icon
+        buildPhase: resources
+        type: file
     settings:
       base:
         CODE_SIGNING_ALLOWED: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       configs:
         Release:
           CODE_SIGNING_ALLOWED: YES

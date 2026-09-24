@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B4E78C06B1EF285A0AB031 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */; };
 		0719281EF758528757D88BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4442AD9073730FAA76E1F29 /* ContentView.swift */; };
 		098A79BEB346882801B88C56 /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326003A064DABFACE505590 /* ProjectContainer.swift */; };
 		64E60D03571F5C0751110E8B /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ACA4DEE6E5EF0140190BE1 /* XcodeMCPClient.swift */; };
@@ -17,6 +18,7 @@
 		5326003A064DABFACE505590 /* ProjectContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContainer.swift; sourceTree = "<group>"; };
 		5733649BE089080F09F1EC24 /* XcodeMiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMiniApp.swift; sourceTree = "<group>"; };
 		79ACA4DEE6E5EF0140190BE1 /* XcodeMCPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPClient.swift; sourceTree = "<group>"; };
+		CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		E4442AD9073730FAA76E1F29 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ED27D5C7C382005F7718BF1A /* XcodeMini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeMini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,9 +38,18 @@
 		B59FE10BD2FA21C8B9ABA186 = {
 			isa = PBXGroup;
 			children = (
+				C745E39037243706B62724E0 /* Assets */,
 				873E7EADD85AFB8C7B03F23D /* Sources */,
 				EB0B1E3257649AF53D2103EF /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		C745E39037243706B62724E0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A510BDFDAFFD611E9B125 /* AppIcon.icon */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		EB0B1E3257649AF53D2103EF /* Products */ = {
@@ -57,6 +68,7 @@
 			buildConfigurationList = FAA733E9EA1B0555C0BFBD6C /* Build configuration list for PBXNativeTarget "XcodeMini" */;
 			buildPhases = (
 				D74F1CB3EAF7F69B603812A0 /* Sources */,
+				A4F578D978698681FC477138 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -101,6 +113,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4F578D978698681FC477138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04B4E78C06B1EF285A0AB031 /* AppIcon.icon in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D74F1CB3EAF7F69B603812A0 /* Sources */ = {
