@@ -2,6 +2,10 @@
 
 ![Xcode Mini running on macOS](Screenshots/XcodeMini.png)
 
+In the AI era, who needs a cockpit-sized IDE? Pick a project, press the one big
+button, and let your AI agent and Xcode do the heavy lifting. Fewer panels, more
+Play.
+
 A small macOS front end for the Xcode 27 MCP server. Open an `.xcodeproj` or
 `.xcworkspace`, or drop one project folder onto the window, then press Play.
 Xcode Mini calls `XcodeOpenWorkspace`, `RunProject`, and `StopProject` through
