@@ -4,8 +4,6 @@ import UniformTypeIdentifiers
 
 struct ContentView: View {
     @Bindable var model: AppModel
-    @ScaledMetric(relativeTo: .largeTitle) private var controlDiameter: CGFloat = 170
-    @ScaledMetric(relativeTo: .largeTitle) private var controlSymbolSize: CGFloat = 84
 
     private let acceptedTypes: [UTType] = [
         .folder,
@@ -16,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             let maxControlDiameter = min(geometry.size.width * 0.55, geometry.size.height * 0.68)
-            let displayedControlDiameter = min(controlDiameter, maxControlDiameter)
+            let displayedControlDiameter = min(170, maxControlDiameter)
 
             ZStack {
                 RunControl(
@@ -24,7 +22,7 @@ struct ContentView: View {
                     hasProject: model.projectURL != nil,
                     status: model.phase.title,
                     diameter: displayedControlDiameter,
-                    symbolSize: min(controlSymbolSize, displayedControlDiameter * 0.5),
+                    symbolSize: min(84, displayedControlDiameter * 0.5),
                     action: model.toggleRun
                 )
                 .nestedAccessibilityIdentifier("run")
@@ -103,7 +101,6 @@ private struct RunControl: View {
         .accessibilityLabel(accessibilityLabel)
         .accessibilityValue(hasProject ? status : "No project selected")
         .accessibilityHint(accessibilityHint)
-        .accessibilityAddTraits(.isButton)
         .nestedAccessibilityIdentifier("toggle")
     }
 
@@ -133,33 +130,19 @@ private struct ButtonGlassSurface: View {
 }
 
 private struct StatusBar: View {
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-
     let projectName: String
     let phase: AppModel.Phase
     let message: String?
 
     var body: some View {
-        Group {
-            if dynamicTypeSize.isAccessibilitySize {
-                VStack(alignment: .leading, spacing: 8) {
-                    projectLabel(lineLimit: 2)
-                    HStack(spacing: 8) {
-                        Spacer(minLength: 0)
-                        statusLabel(lineLimit: 3)
-                    }
-                }
-            } else {
-                HStack(spacing: 8) {
-                    projectLabel(lineLimit: 1)
-                    Spacer(minLength: 18)
-                    statusLabel(lineLimit: 1)
-                }
-            }
+        HStack(spacing: 8) {
+            projectLabel(lineLimit: 1)
+            Spacer(minLength: 18)
+            statusLabel(lineLimit: 1)
         }
         .font(.caption)
         .padding(.horizontal, 16)
-        .padding(.vertical, dynamicTypeSize.isAccessibilitySize ? 12 : 9)
+        .padding(.vertical, 9)
         .background(.bar)
         .overlay(alignment: .top) { Divider() }
     }
@@ -206,4 +189,15 @@ private struct StatusBar: View {
     private var statusText: String {
         phase == .failed ? message ?? phase.title : phase.title
     }
+}
+
+#Preview("Default") {
+    ContentView(model: AppModel())
+        .frame(width: 480, height: 420)
+}
+
+#Preview("Dark") {
+    ContentView(model: AppModel())
+        .frame(width: 480, height: 420)
+        .preferredColorScheme(.dark)
 }
