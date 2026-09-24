@@ -6,4 +6,4 @@ RELEASE_ZIP ?= $(lastword $(sort $(wildcard build/macos-release-*/XcodeMini-$(VE
 upload-release:
 	@test -n "$(RELEASE_ZIP)" -a -f "$(RELEASE_ZIP)" || { echo "No notarized ZIP found for version $(VERSION). Run Scripts/release-macos.sh first or set RELEASE_ZIP." >&2; exit 1; }
 	@gh release view "$(RELEASE_TAG)" >/dev/null
-	gh release upload "$(RELEASE_TAG)" "$(RELEASE_ZIP)"
+	gh release upload --clobber "$(RELEASE_TAG)" "$(RELEASE_ZIP)"
