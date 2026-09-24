@@ -1,4 +1,4 @@
-VERSION ?= 0.1.0
+VERSION ?= 0.1.1
 RELEASE_TAG ?= v$(VERSION)
 RELEASE_ZIP ?= $(lastword $(sort $(wildcard build/macos-release-*/XcodeMini-$(VERSION)-macos-notarized.zip)))
 
