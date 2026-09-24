@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := upload-release
 
-VERSION ?= 0.1.1
+VERSION ?= 0.1.2
 RELEASE_TAG ?= v$(VERSION)
 RELEASE_ZIP ?= $(lastword $(sort $(wildcard build/macos-release-*/XcodeMini-$(VERSION)-macos-notarized.zip)))
 SWIFT ?= swift
