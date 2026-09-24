@@ -30,3 +30,13 @@ xcodebuild -project XcodeMini.xcodeproj -scheme XcodeMini -destination 'platform
 ## Release 0.0.1
 
 Download `XcodeMini-0.0.1-macos-arm64.zip` from the [GitHub Releases](https://github.com/SoundBlaster/XcodeMini/releases) page and move `Xcode Mini.app` to Applications. This first release is not notarized; macOS may require opening it once from Finder using Control-click > Open.
+
+## Developer ID release
+
+The Release configuration uses Developer ID Application signing with Hardened Runtime. To archive, export, notarize, staple, and package a release ZIP on the Mac, install a Developer ID Application certificate for team `P8T2366K8X` and use an App Store Connect Team API profile authorized for notarization:
+
+```sh
+ASC_PROFILE="Agent Session Monitor" ./Scripts/release-macos.sh
+```
+
+The script writes the notarized ZIP under `build/`. It does not upload or publish a GitHub release.

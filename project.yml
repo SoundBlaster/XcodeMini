@@ -4,10 +4,11 @@ options:
     macOS: "15.0"
 settings:
   base:
-    PRODUCT_BUNDLE_IDENTIFIER: com.egor.xcodemini
+    PRODUCT_BUNDLE_IDENTIFIER: ru.egormerkushev.xcodemini
     PRODUCT_NAME: Xcode Mini
-    MARKETING_VERSION: 0.0.1
-    CURRENT_PROJECT_VERSION: 1
+    DEVELOPMENT_TEAM: P8T2366K8X
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 2
     SWIFT_VERSION: "6.0"
     MACOSX_DEPLOYMENT_TARGET: "15.0"
     GENERATE_INFOPLIST_FILE: YES
@@ -22,3 +23,9 @@ targets:
     settings:
       base:
         CODE_SIGNING_ALLOWED: NO
+      configs:
+        Release:
+          CODE_SIGNING_ALLOWED: YES
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+          ENABLE_HARDENED_RUNTIME: YES
