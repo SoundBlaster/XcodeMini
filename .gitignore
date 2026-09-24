@@ -1,3 +1,25 @@
 .DS_Store
 DerivedData/
 build/
+
+# Xcode user-specific state and generated project metadata
+**/xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.hmap
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Apple platform build products
+*.app
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcarchive
+
+# Dependency build artifacts
+Carthage/Build/
+Pods/
