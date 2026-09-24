@@ -33,10 +33,10 @@ Download `XcodeMini-0.0.1-macos-arm64.zip` from the [GitHub Releases](https://gi
 
 ## Developer ID release
 
-The Release configuration is prepared for Developer ID Application signing with Hardened Runtime. To archive, export, notarize, staple, and package a release ZIP on the Mac, install a Developer ID Application certificate for team `P8T2366K8X`, configure an App Store Connect API profile that can submit notarizations, then run:
+The Release configuration uses Developer ID Application signing with Hardened Runtime. To archive, export, notarize, staple, and package a release ZIP on the Mac, install a Developer ID Application certificate for team `P8T2366K8X` and use an App Store Connect Team API profile authorized for notarization:
 
 ```sh
-ASC_PROFILE=XcodeMini ./Scripts/release-macos.sh
+ASC_PROFILE="Agent Session Monitor" ./Scripts/release-macos.sh
 ```
 
 The script writes the notarized ZIP under `build/`. It does not upload or publish a GitHub release.
