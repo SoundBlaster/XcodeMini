@@ -27,9 +27,9 @@ xcodegen generate
 xcodebuild -project XcodeMini.xcodeproj -scheme XcodeMini -destination 'platform=macOS' build
 ```
 
-## Release 0.0.1
+## Release 0.1.1
 
-Download `XcodeMini-0.0.1-macos-arm64.zip` from the [GitHub Releases](https://github.com/SoundBlaster/XcodeMini/releases) page and move `Xcode Mini.app` to Applications. This first release is not notarized; macOS may require opening it once from Finder using Control-click > Open.
+Download the notarized `XcodeMini-0.1.1-macos-notarized.zip` from the [v0.1.1 GitHub release](https://github.com/SoundBlaster/XcodeMini/releases/tag/v0.1.1), unzip it, and move `Xcode Mini.app` to Applications.
 
 ## Developer ID release
 
