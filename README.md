@@ -11,6 +11,11 @@ A small macOS front end for the Xcode 27 MCP server. Open an `.xcodeproj` or
 Xcode Mini calls `XcodeOpenWorkspace`, `RunProject`, and `StopProject` through
 Apple's `xcrun mcpbridge`; it does not invoke `xcodebuild` itself.
 
+Saved projects are also available from the menu bar. Add an Xcode Mini widget to
+the desktop, choose one of those saved projects, and run or stop it without
+opening the main window. On macOS 26 and later, widget actions run as
+background App Intents and use the same Xcode MCP authorization as the app.
+
 ## Requirements
 
 - macOS 15 or later on Apple silicon

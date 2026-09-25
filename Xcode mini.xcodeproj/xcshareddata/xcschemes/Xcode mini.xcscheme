@@ -21,6 +21,20 @@
                ReferencedContainer = "container:Xcode mini.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A0602F5D1BEEBEA83A2E6A6F"
+               BuildableName = "XcodeMiniWidgetExtension.appex"
+               BlueprintName = "XcodeMiniWidgetExtension"
+               ReferencedContainer = "container:Xcode mini.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

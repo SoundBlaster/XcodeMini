@@ -29,18 +29,50 @@ targets:
     platform: macOS
     sources:
       - path: Sources
+        excludes:
+          - WidgetExtension/**
       - path: Assets/AppIcon.icon
         buildPhase: resources
         type: file
     dependencies:
+      - target: XcodeMiniWidgetExtension
+        embed: true
       - package: NestedA11yIDs
         product: NestedA11yIDs
     settings:
       base:
         CODE_SIGNING_ALLOWED: NO
+        CODE_SIGN_ENTITLEMENTS: Config/XcodeMini.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         PRODUCT_NAME: Xcode mini
         INFOPLIST_KEY_CFBundleDisplayName: Xcode mini
+      configs:
+        Release:
+          CODE_SIGNING_ALLOWED: YES
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+          ENABLE_HARDENED_RUNTIME: YES
+  XcodeMiniWidgetExtension:
+    type: app-extension
+    platform: macOS
+    info:
+      path: Config/XcodeMiniWidgetExtension-Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    sources:
+      - path: Sources/WidgetExtension
+      - path: Sources/App/features/run-project/model
+      - path: Sources/App/shared/api/xcode-mcp
+      - path: Sources/App/entities/xcode-project/model
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ru.egormerkushev.xcodemini.widget
+        PRODUCT_NAME: XcodeMiniWidgetExtension
+        CODE_SIGN_ENTITLEMENTS: Config/XcodeMiniWidgetExtension.entitlements
+        CODE_SIGNING_ALLOWED: NO
+        SKIP_INSTALL: YES
+        GENERATE_INFOPLIST_FILE: YES
       configs:
         Release:
           CODE_SIGNING_ALLOWED: YES
@@ -52,6 +84,7 @@ schemes:
     build:
       targets:
         Xcode mini: all
+        XcodeMiniWidgetExtension: all
     run:
       config: Debug
     archive:

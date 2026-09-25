@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import WidgetKit
 
 @MainActor
 @Observable
@@ -30,17 +31,24 @@ final class RunProjectModel {
     var phase: Phase = .ready
     var message: String?
     var isShowingImporter = false
+    var savedProjects: [SavedProject] { ProjectCatalog.projects }
 
     private let xcode: any XcodeMCPServicing
+    private var operationID = UUID()
+    private var operationTask: Task<Void, Never>?
 
     var projectName: String {
         project?.name ?? "Choose a project"
     }
 
     func select(_ url: URL) {
+        supersedeCurrentOperation()
         do {
-            project = try XcodeProject.resolve(from: url)
-            phase = .ready
+            let resolved = try XcodeProject.resolve(from: url)
+            project = resolved
+            _ = ProjectCatalog.add(resolved)
+            WidgetCenter.shared.reloadTimelines(ofKind: "XcodeMiniProjectWidget")
+            phase = ProjectCatalog.isRunning(SavedProject(url: resolved.url)) ? .running : .ready
             message = nil
         } catch {
             message = error.localizedDescription
@@ -50,6 +58,10 @@ final class RunProjectModel {
 
     init(xcode: any XcodeMCPServicing) {
         self.xcode = xcode
+        if let saved = ProjectCatalog.projects.first {
+            project = XcodeProject(url: saved.url)
+            phase = ProjectCatalog.isRunning(saved) ? .running : .ready
+        }
     }
 
     func toggleRun() {
@@ -66,36 +78,50 @@ final class RunProjectModel {
             return
         }
 
-        phase = .starting
+        perform(project, shouldRun: true)
+    }
+
+    private func stop() {
+        guard let project else { return }
+        perform(project, shouldRun: false)
+    }
+
+    func selectAndToggle(_ saved: SavedProject) {
+        project = XcodeProject(url: saved.url)
+        phase = ProjectCatalog.isRunning(saved) ? .running : .ready
+        toggleRun()
+    }
+
+    private func perform(_ project: XcodeProject, shouldRun: Bool) {
+        supersedeCurrentOperation()
+        let requestedOperationID = operationID
+        phase = shouldRun ? .starting : .stopping
         message = nil
-        Task {
+        operationTask = Task {
             do {
                 _ = try await xcode.openWorkspace(at: project.url)
-                guard phase == .starting else { return }
-                let result = try await xcode.runProject(at: project.url)
-                guard phase == .starting else { return }
-                phase = .running
+                try Task.checkCancellation()
+                guard operationID == requestedOperationID else { return }
+                let result = try await (shouldRun ? xcode.runProject(at: project.url) : xcode.stopProject(at: project.url))
+                try Task.checkCancellation()
+                guard operationID == requestedOperationID else { return }
+                ProjectCatalog.setRunning(shouldRun, for: SavedProject(url: project.url))
+                WidgetCenter.shared.reloadTimelines(ofKind: "XcodeMiniProjectWidget")
+                phase = shouldRun ? .running : .ready
                 message = result
+            } catch is CancellationError {
+                return
             } catch {
-                guard phase != .stopping else { return }
+                guard operationID == requestedOperationID else { return }
                 phase = .failed
                 message = error.localizedDescription
             }
         }
     }
 
-    private func stop() {
-        guard let project else { return }
-        phase = .stopping
-        Task {
-            do {
-                let result = try await xcode.stopProject(at: project.url)
-                phase = .ready
-                message = result
-            } catch {
-                phase = .failed
-                message = error.localizedDescription
-            }
-        }
+    private func supersedeCurrentOperation() {
+        operationID = UUID()
+        operationTask?.cancel()
+        operationTask = nil
     }
 }

@@ -10,8 +10,11 @@ Sources/App/
   app/entrypoint/                 application composition and startup
   pages/run-project/ui/           the one-screen Run Project experience
   features/run-project/model/     project selection and run/stop state
-  entities/xcode-project/model/   Xcode project and workspace resolution
+  features/run-project/ui/        menu bar project picker and actions
+  entities/xcode-project/model/   Xcode project resolution and shared catalog
   shared/api/xcode-mcp/           Xcode MCP transport and service contract
+  features/run-project/model/     widget intents and run/stop orchestration
+Sources/WidgetExtension/          configurable desktop widget UI and provider
 ```
 
 Dependencies point downward:
@@ -25,11 +28,13 @@ The page owns SwiftUI composition and file/drop presentation. The feature model
 owns project/run state and uses the injected `XcodeMCPServicing` interface. The
 project entity resolves `.xcodeproj` and `.xcworkspace` containers. The MCP
 client stays in `shared` and knows nothing about the app's presentation state.
+The menu bar and desktop widget share a project catalog and running state in a
+team-scoped App Group. On macOS 26 and later, widget App Intents run in the app
+process in the background and invoke the Xcode MCP client there.
 
-This app currently has one page, so its header, run control, and status bar stay
-private to that page. `widgets` is intentionally unused until a substantial UI
-composition is reused. The linter checks the layer and slice structure, then
-checks local Swift type references for upward and sibling-slice dependencies.
+The main page's header, run control, and status bar stay private to that page.
+The linter checks the layer and slice structure, then checks local Swift type
+references for upward and sibling-slice dependencies.
 
 ## Checks
 
