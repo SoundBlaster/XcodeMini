@@ -5,7 +5,7 @@ struct XcodeMiniApp: App {
     @State private var model = RunProjectModel(xcode: XcodeMCPClient())
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "main") {
             RunProjectPage(model: model)
                 .frame(minWidth: 420, minHeight: 360)
         }
@@ -19,5 +19,10 @@ struct XcodeMiniApp: App {
                 .keyboardShortcut("o", modifiers: .command)
             }
         }
+
+        MenuBarExtra("Xcode mini", systemImage: "hammer") {
+            ProjectsMenuView(model: model)
+        }
+        .menuBarExtraStyle(.menu)
     }
 }

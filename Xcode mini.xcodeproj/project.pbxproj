@@ -7,26 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0324921787441F5D34206899 /* ProjectsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF3DD31D78B379FC403A7C2 /* ProjectsMenuView.swift */; };
+		06C708CD3A2C9FD91F8C3D46 /* ProjectWidgetIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EAA351B1C4239FE4180ECC /* ProjectWidgetIntents.swift */; };
 		08695D2DE9EA363D421104B5 /* XcodeMCPServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */; };
+		0ADEC06EFA89827273F1C5AF /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83573A24A5969775A0926FC /* ProjectContainer.swift */; };
+		12E30276F330FD6E7F74ABB3 /* ProjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AF6BA950EF0212D32BD78 /* ProjectCatalog.swift */; };
+		3C8983AB1BC15827574730CE /* RunProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */; };
 		44BA17180EE54A7EC23E2ED9 /* NestedA11yIDs in Frameworks */ = {isa = PBXBuildFile; productRef = F1CF5E0EB8F684FF72D95BB2 /* NestedA11yIDs */; };
 		458AD2FC5B4EC909F69985C4 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2DE140C724FAE125E8E63C22 /* AppIcon.icon */; };
 		4F9EAF28A54B8974A51FD866 /* XcodeProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */; };
+		5423BCD592F12D672CB5CA7C /* ProjectWidgetIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EAA351B1C4239FE4180ECC /* ProjectWidgetIntents.swift */; };
+		57C36D720EDEDCF36E9FF9A7 /* XcodeMiniWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3541273689C5C8138455187 /* XcodeMiniWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		63D8CB784AB19AEABE96FAFF /* ProjectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46B4350D43558684B536C6 /* ProjectAction.swift */; };
 		68CAF5A0460371B86D23FD9C /* XcodeMiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F35FB8354620ED83910184 /* XcodeMiniApp.swift */; };
+		8E3A652B93E15534F53974AB /* XcodeProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */; };
+		990A94A3F02C2B1E39A2AEF1 /* XcodeMiniWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E251E701084C84D04AC1C38 /* XcodeMiniWidget.swift */; };
 		AECB03C0639EF6C117EF6EDB /* RunProjectPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC9163B5DCC360AA0795E40 /* RunProjectPage.swift */; };
+		B504F87EA4CD980ED3613FC6 /* ProjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3AF6BA950EF0212D32BD78 /* ProjectCatalog.swift */; };
 		D79FBCF0F3D799C8A031D751 /* ProjectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83573A24A5969775A0926FC /* ProjectContainer.swift */; };
+		DF2A35812CCB85FE09A740D8 /* XcodeMCPServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */; };
 		E5FCE66A54A15E45C2012B4F /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */; };
+		F0050A8F7AD0231E31E29A31 /* XcodeMCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */; };
+		F14A0B82909D949FD52A4AAE /* ProjectAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46B4350D43558684B536C6 /* ProjectAction.swift */; };
 		F6DC842DEA8A581331CA7BAB /* RunProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02C6E1F429422C2BDDF2EDAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 429FBAA1E588E1C692892F64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0602F5D1BEEBEA83A2E6A6F;
+			remoteInfo = XcodeMiniWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		243AE0C1BFE5767FBF61E628 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				57C36D720EDEDCF36E9FF9A7 /* XcodeMiniWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectModel.swift; sourceTree = "<group>"; };
 		1FC9163B5DCC360AA0795E40 /* RunProjectPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunProjectPage.swift; sourceTree = "<group>"; };
 		2DE140C724FAE125E8E63C22 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		2E251E701084C84D04AC1C38 /* XcodeMiniWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMiniWidget.swift; sourceTree = "<group>"; };
 		382F02C2D79572937A6DB688 /* XcodeMCPServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPServicing.swift; sourceTree = "<group>"; };
+		5E46B4350D43558684B536C6 /* ProjectAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAction.swift; sourceTree = "<group>"; };
 		70F35FB8354620ED83910184 /* XcodeMiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMiniApp.swift; sourceTree = "<group>"; };
 		90C45F3D62639775308381BF /* Xcode mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xcode mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95EAA351B1C4239FE4180ECC /* ProjectWidgetIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWidgetIntents.swift; sourceTree = "<group>"; };
+		A3541273689C5C8138455187 /* XcodeMiniWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XcodeMiniWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D2A029631A1D25FB58D637 /* XcodeMCPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeMCPClient.swift; sourceTree = "<group>"; };
+		BE3AF6BA950EF0212D32BD78 /* ProjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCatalog.swift; sourceTree = "<group>"; };
 		E83573A24A5969775A0926FC /* ProjectContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContainer.swift; sourceTree = "<group>"; };
+		ECF3DD31D78B379FC403A7C2 /* ProjectsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsMenuView.swift; sourceTree = "<group>"; };
 		FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeProject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +131,7 @@
 			children = (
 				5582D0701123530104D109C1 /* Assets */,
 				12289994C46188C0577FCED0 /* Sources */,
+				636635B9501621BFAADFA904 /* WidgetExtension */,
 				930FE0F6FDC9BA6652F27026 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +142,15 @@
 				2DE140C724FAE125E8E63C22 /* AppIcon.icon */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		636635B9501621BFAADFA904 /* WidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2E251E701084C84D04AC1C38 /* XcodeMiniWidget.swift */,
+			);
+			name = WidgetExtension;
+			path = Sources/WidgetExtension;
 			sourceTree = "<group>";
 		};
 		6A05AF3EDC8029FE88DDE1E2 /* entrypoint */ = {
@@ -118,6 +172,7 @@
 		76CB13E765F4DE0175E07AB4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BE3AF6BA950EF0212D32BD78 /* ProjectCatalog.swift */,
 				E83573A24A5969775A0926FC /* ProjectContainer.swift */,
 				FFE2D17AE5ADA4675E3F6B92 /* XcodeProject.swift */,
 			);
@@ -128,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				90C45F3D62639775308381BF /* Xcode mini.app */,
+				A3541273689C5C8138455187 /* XcodeMiniWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +199,8 @@
 		B2EF8A021BDAD9788CDF505C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				5E46B4350D43558684B536C6 /* ProjectAction.swift */,
+				95EAA351B1C4239FE4180ECC /* ProjectWidgetIntents.swift */,
 				02BC71CA2068AC12D371AD49 /* RunProjectModel.swift */,
 			);
 			path = model;
@@ -172,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				B2EF8A021BDAD9788CDF505C /* model */,
+				D9D5D26C9C487FB41D8A153F /* ui */,
 			);
 			path = "run-project";
 			sourceTree = "<group>";
@@ -193,6 +252,14 @@
 			path = "xcode-mcp";
 			sourceTree = "<group>";
 		};
+		D9D5D26C9C487FB41D8A153F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3DD31D78B379FC403A7C2 /* ProjectsMenuView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		E2098CFFBCF5CC2E973B446F /* run-project */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,10 +278,12 @@
 				2C2D4D1E4B5231BAAB0B373C /* Sources */,
 				83CAFB3FE65A01CFB076513C /* Resources */,
 				76FC1EC24A574D930D2EAF74 /* Frameworks */,
+				243AE0C1BFE5767FBF61E628 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14652765510D2F18C86D0D3F /* PBXTargetDependency */,
 			);
 			name = "Xcode mini";
 			packageProductDependencies = (
@@ -223,6 +292,23 @@
 			productName = "Xcode mini";
 			productReference = 90C45F3D62639775308381BF /* Xcode mini.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A0602F5D1BEEBEA83A2E6A6F /* XcodeMiniWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE2636281A9CA205692DA9BE /* Build configuration list for PBXNativeTarget "XcodeMiniWidgetExtension" */;
+			buildPhases = (
+				C90D4ED162B4E358780AA1B0 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XcodeMiniWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = XcodeMiniWidgetExtension;
+			productReference = A3541273689C5C8138455187 /* XcodeMiniWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -234,6 +320,9 @@
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					42863B70F58B1B3C66AF5DE0 = {
+						DevelopmentTeam = P8T2366K8X;
+					};
+					A0602F5D1BEEBEA83A2E6A6F = {
 						DevelopmentTeam = P8T2366K8X;
 					};
 				};
@@ -256,6 +345,7 @@
 			projectRoot = "";
 			targets = (
 				42863B70F58B1B3C66AF5DE0 /* Xcode mini */,
+				A0602F5D1BEEBEA83A2E6A6F /* XcodeMiniWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -276,7 +366,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14A0B82909D949FD52A4AAE /* ProjectAction.swift in Sources */,
+				B504F87EA4CD980ED3613FC6 /* ProjectCatalog.swift in Sources */,
 				D79FBCF0F3D799C8A031D751 /* ProjectContainer.swift in Sources */,
+				06C708CD3A2C9FD91F8C3D46 /* ProjectWidgetIntents.swift in Sources */,
+				0324921787441F5D34206899 /* ProjectsMenuView.swift in Sources */,
 				F6DC842DEA8A581331CA7BAB /* RunProjectModel.swift in Sources */,
 				AECB03C0639EF6C117EF6EDB /* RunProjectPage.swift in Sources */,
 				E5FCE66A54A15E45C2012B4F /* XcodeMCPClient.swift in Sources */,
@@ -286,7 +380,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C90D4ED162B4E358780AA1B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63D8CB784AB19AEABE96FAFF /* ProjectAction.swift in Sources */,
+				12E30276F330FD6E7F74ABB3 /* ProjectCatalog.swift in Sources */,
+				0ADEC06EFA89827273F1C5AF /* ProjectContainer.swift in Sources */,
+				5423BCD592F12D672CB5CA7C /* ProjectWidgetIntents.swift in Sources */,
+				3C8983AB1BC15827574730CE /* RunProjectModel.swift in Sources */,
+				F0050A8F7AD0231E31E29A31 /* XcodeMCPClient.swift in Sources */,
+				DF2A35812CCB85FE09A740D8 /* XcodeMCPServicing.swift in Sources */,
+				990A94A3F02C2B1E39A2AEF1 /* XcodeMiniWidget.swift in Sources */,
+				8E3A652B93E15534F53974AB /* XcodeProject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14652765510D2F18C86D0D3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0602F5D1BEEBEA83A2E6A6F /* XcodeMiniWidgetExtension */;
+			targetProxy = 02C6E1F429422C2BDDF2EDAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0AF7ECB00872DDBE49D4EDB7 /* Release */ = {
@@ -360,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = Config/XcodeMini.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Xcode mini";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -371,11 +490,55 @@
 			};
 			name = Debug;
 		};
+		1ED726912A37356DDD6433A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/XcodeMiniWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/XcodeMiniWidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.egormerkushev.xcodemini.widget;
+				PRODUCT_NAME = XcodeMiniWidgetExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D54AB2779F6FF3EF8CEA994C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_ENTITLEMENTS = Config/XcodeMiniWidgetExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/XcodeMiniWidgetExtension-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.egormerkushev.xcodemini.widget;
+				PRODUCT_NAME = XcodeMiniWidgetExtension;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		E793A5B92E2EDDBC494704FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/XcodeMini.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -480,6 +643,15 @@
 			buildConfigurations = (
 				F4703064B39A846ED7C84BCA /* Debug */,
 				0AF7ECB00872DDBE49D4EDB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE2636281A9CA205692DA9BE /* Build configuration list for PBXNativeTarget "XcodeMiniWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D54AB2779F6FF3EF8CEA994C /* Debug */,
+				1ED726912A37356DDD6433A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

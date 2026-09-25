@@ -30,6 +30,7 @@ final class RunProjectModel {
     var phase: Phase = .ready
     var message: String?
     var isShowingImporter = false
+    var savedProjects: [SavedProject] { ProjectCatalog.projects }
 
     private let xcode: any XcodeMCPServicing
 
@@ -39,8 +40,10 @@ final class RunProjectModel {
 
     func select(_ url: URL) {
         do {
-            project = try XcodeProject.resolve(from: url)
-            phase = .ready
+            let resolved = try XcodeProject.resolve(from: url)
+            project = resolved
+            _ = ProjectCatalog.add(resolved)
+            phase = ProjectCatalog.isRunning(SavedProject(url: resolved.url)) ? .running : .ready
             message = nil
         } catch {
             message = error.localizedDescription
@@ -50,6 +53,10 @@ final class RunProjectModel {
 
     init(xcode: any XcodeMCPServicing) {
         self.xcode = xcode
+        if let saved = ProjectCatalog.projects.first {
+            project = XcodeProject(url: saved.url)
+            phase = ProjectCatalog.isRunning(saved) ? .running : .ready
+        }
     }
 
     func toggleRun() {
@@ -66,31 +73,29 @@ final class RunProjectModel {
             return
         }
 
-        phase = .starting
-        message = nil
-        Task {
-            do {
-                _ = try await xcode.openWorkspace(at: project.url)
-                guard phase == .starting else { return }
-                let result = try await xcode.runProject(at: project.url)
-                guard phase == .starting else { return }
-                phase = .running
-                message = result
-            } catch {
-                guard phase != .stopping else { return }
-                phase = .failed
-                message = error.localizedDescription
-            }
-        }
+        perform(project, shouldRun: true)
     }
 
     private func stop() {
         guard let project else { return }
-        phase = .stopping
+        perform(project, shouldRun: false)
+    }
+
+    func selectAndToggle(_ saved: SavedProject) {
+        project = XcodeProject(url: saved.url)
+        phase = ProjectCatalog.isRunning(saved) ? .running : .ready
+        toggleRun()
+    }
+
+    private func perform(_ project: XcodeProject, shouldRun: Bool) {
+        phase = shouldRun ? .starting : .stopping
+        message = nil
         Task {
             do {
-                let result = try await xcode.stopProject(at: project.url)
-                phase = .ready
+                _ = try await xcode.openWorkspace(at: project.url)
+                let result = try await (shouldRun ? xcode.runProject(at: project.url) : xcode.stopProject(at: project.url))
+                ProjectCatalog.setRunning(shouldRun, for: SavedProject(url: project.url))
+                phase = shouldRun ? .running : .ready
                 message = result
             } catch {
                 phase = .failed
