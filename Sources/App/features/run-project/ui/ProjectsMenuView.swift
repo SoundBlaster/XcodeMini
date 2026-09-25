@@ -21,7 +21,10 @@ struct ProjectsMenuView: View {
             Button("Open Project…") { openImporter() }
         }
         Divider()
-        Button("Show Xcode mini") { NSApp.activate(ignoringOtherApps: true) }
+        Button("Show Xcode mini") {
+            openWindow(id: "main")
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 
     private func openImporter() {

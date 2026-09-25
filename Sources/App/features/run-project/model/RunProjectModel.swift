@@ -34,12 +34,15 @@ final class RunProjectModel {
     var savedProjects: [SavedProject] { ProjectCatalog.projects }
 
     private let xcode: any XcodeMCPServicing
+    private var operationID = UUID()
+    private var operationTask: Task<Void, Never>?
 
     var projectName: String {
         project?.name ?? "Choose a project"
     }
 
     func select(_ url: URL) {
+        supersedeCurrentOperation()
         do {
             let resolved = try XcodeProject.resolve(from: url)
             project = resolved
@@ -90,20 +93,35 @@ final class RunProjectModel {
     }
 
     private func perform(_ project: XcodeProject, shouldRun: Bool) {
+        supersedeCurrentOperation()
+        let requestedOperationID = operationID
         phase = shouldRun ? .starting : .stopping
         message = nil
-        Task {
+        operationTask = Task {
             do {
                 _ = try await xcode.openWorkspace(at: project.url)
+                try Task.checkCancellation()
+                guard operationID == requestedOperationID else { return }
                 let result = try await (shouldRun ? xcode.runProject(at: project.url) : xcode.stopProject(at: project.url))
+                try Task.checkCancellation()
+                guard operationID == requestedOperationID else { return }
                 ProjectCatalog.setRunning(shouldRun, for: SavedProject(url: project.url))
                 WidgetCenter.shared.reloadTimelines(ofKind: "XcodeMiniProjectWidget")
                 phase = shouldRun ? .running : .ready
                 message = result
+            } catch is CancellationError {
+                return
             } catch {
+                guard operationID == requestedOperationID else { return }
                 phase = .failed
                 message = error.localizedDescription
             }
         }
+    }
+
+    private func supersedeCurrentOperation() {
+        operationID = UUID()
+        operationTask?.cancel()
+        operationTask = nil
     }
 }
