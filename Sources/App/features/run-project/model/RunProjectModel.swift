@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import WidgetKit
 
 @MainActor
 @Observable
@@ -43,6 +44,7 @@ final class RunProjectModel {
             let resolved = try XcodeProject.resolve(from: url)
             project = resolved
             _ = ProjectCatalog.add(resolved)
+            WidgetCenter.shared.reloadTimelines(ofKind: "XcodeMiniProjectWidget")
             phase = ProjectCatalog.isRunning(SavedProject(url: resolved.url)) ? .running : .ready
             message = nil
         } catch {
@@ -95,6 +97,7 @@ final class RunProjectModel {
                 _ = try await xcode.openWorkspace(at: project.url)
                 let result = try await (shouldRun ? xcode.runProject(at: project.url) : xcode.stopProject(at: project.url))
                 ProjectCatalog.setRunning(shouldRun, for: SavedProject(url: project.url))
+                WidgetCenter.shared.reloadTimelines(ofKind: "XcodeMiniProjectWidget")
                 phase = shouldRun ? .running : .ready
                 message = result
             } catch {
