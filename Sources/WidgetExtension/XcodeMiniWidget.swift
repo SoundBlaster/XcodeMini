@@ -22,7 +22,7 @@ struct ProjectWidgetProvider: AppIntentTimelineProvider {
     }
 
     private func resolve(_ configuration: ConfigureProjectWidgetIntent) -> SavedProject? {
-        guard let id = configuration.project?.id else { return nil }
+        guard let id = configuration.project?.id else { return ProjectCatalog.projects.first }
         return ProjectCatalog.projects.first { $0.id == id }
     }
 
@@ -69,7 +69,7 @@ private struct ProjectWidgetView: View {
             .padding()
             .containerBackground(.background, for: .widget)
         } else {
-            ContentUnavailableView("Choose a project", systemImage: "folder", description: Text("Add a project in Xcode mini, then configure this widget."))
+            ContentUnavailableView("Choose a project", systemImage: "folder", description: Text("Open Xcode mini and add a project to use this widget."))
                 .containerBackground(.background, for: .widget)
         }
     }
