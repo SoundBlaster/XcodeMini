@@ -22,7 +22,7 @@ struct ProjectWidgetProvider: AppIntentTimelineProvider {
     }
 
     private func resolve(_ configuration: ConfigureProjectWidgetIntent) -> SavedProject? {
-        guard let id = configuration.project?.id else { return nil }
+        guard let id = configuration.project?.id else { return ProjectCatalog.projects.first }
         return ProjectCatalog.projects.first { $0.id == id }
     }
 
@@ -45,6 +45,7 @@ struct ProjectWidget: Widget {
 
 private struct ProjectWidgetView: View {
     let entry: ProjectWidgetEntry
+    @Environment(\.widgetRenderingMode) private var widgetRenderingMode
 
     var body: some View {
         if let project = entry.project {
@@ -57,21 +58,35 @@ private struct ProjectWidgetView: View {
                 HStack {
                     if entry.isRunning {
                         Button(intent: StopProjectWidgetIntent(projectID: project.id)) {
-                            Label("Stop", systemImage: "stop.fill")
-                        }.buttonStyle(.bordered)
+                            actionLabel("Stop", systemImage: "stop.fill")
+                        }
+                        .buttonStyle(.plain)
                     } else {
                         Button(intent: RunProjectWidgetIntent(projectID: project.id)) {
-                            Label("Run", systemImage: "play.fill")
-                        }.buttonStyle(.borderedProminent)
+                            actionLabel("Run", systemImage: "play.fill")
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
             .padding()
             .containerBackground(.background, for: .widget)
         } else {
-            ContentUnavailableView("Choose a project", systemImage: "folder", description: Text("Add a project in Xcode mini, then configure this widget."))
+            ContentUnavailableView("Choose a project", systemImage: "folder", description: Text("Open Xcode mini and add a project to use this widget."))
                 .containerBackground(.background, for: .widget)
         }
+    }
+
+    private func actionLabel(_ title: LocalizedStringKey, systemImage: String) -> some View {
+        Label(title, systemImage: systemImage)
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(.white)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(
+                widgetRenderingMode == .vibrant ? AnyShapeStyle(.clear) : AnyShapeStyle(.tint),
+                in: Capsule()
+            )
     }
 }
 
